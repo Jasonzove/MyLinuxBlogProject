@@ -5,10 +5,14 @@ import (
 	"github.com/astaxie/beego"
 	_"classsOne/models"
 	"strconv"
+	//"github.com/astaxie/beego/plugins/cors"
 )
 
+
 func main() {
-	beego.AddFuncMap("ShowPrePage",HandlePrePage)//试图函数的映射关系一定要放在run前
+
+
+	beego.AddFuncMap("ShowPrePage",HandlePrePage)//视图函数的映射关系一定要放在run前
 	beego.AddFuncMap("ShowNextPage",HandleNextPage)
 
 	beego.Run()

@@ -4,9 +4,19 @@ import (
 	"classsOne/controllers"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
+	//"github.com/astaxie/beego/plugins/cors"
 )
 
 func init() {
+		//beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
+		//	//AllowAllOrigins:  true,
+		//	AllowOrigins:      []string{"https://192.168.1.104"},
+		//	AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		//	AllowHeaders:     []string{"Origin", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers", "Content-Type"},
+		//	ExposeHeaders:    []string{"Content-Length", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers", "Content-Type"},
+		//	AllowCredentials: true,
+		//}))
+
     //beego.Router("/", &controllers.MainController{})
     beego.InsertFilter("/Article/*",beego.BeforeRouter,FilterFunc)//插入一个路由过滤器，放在router之前
     beego.Router("/register",&controllers.RegController{},"get:ShowReg;post:HandleReg")
